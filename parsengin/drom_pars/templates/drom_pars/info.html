@@ -1,0 +1,33 @@
+{% extends 'drom_pars/base_page.html' %}
+
+{% block title %}
+    Парсинг сайта "Дром" на Django
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+		<div class="row mt-5">
+
+			<h1 class="d-flex m-auto mb-5">Детальный парсинг ссылок сайта "Дром"</h1>
+
+		{% for a in items %}
+
+			<div class="col-md-4 mt-5" style="border: 1px solid #969595">
+				<h3 class="text-center" style="font-weight: bold;">{{ a.title }}</h3>
+				<p class="text-center">Цена: {{ a.price }} рублей</p>
+
+				{% for b in a.info %}
+
+					<p style="font-size: 12px; color: #858484;">{{ b }}</p>
+
+				{% endfor %}
+
+			</div>
+		{% endfor %}
+
+		</div>
+
+		<a href="{% url 'main_url' %}" class="font-weight-bold d-flex btn btn-dark m-auto" style="width: 110px; height: 65px; margin-top: 20px;"> Вернуться назад </a>
+
+	</div>
+{% endblock %}
